@@ -6,6 +6,14 @@
     -fx-padding: 0.7em 0.57em;
     -fx-font-size: 14px;
     -jfx-button-type: RAISED;
-    -fx-background-color: rgb(77, 102, 204);
-    -fx-text-fill: WHITE;
+    -fx-background-color: transparent;
+    -fx-text-fill: BLACK;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-border-color: #8e8e8e;
+}
+
+.text-field-transparent {
+    -jfx-focus-color: transparent;
+    -jfx-unfocus-color: transparent;
 }

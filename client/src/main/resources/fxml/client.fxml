@@ -1,44 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.HBox?>
-<?import com.jfoenix.controls.JFXNodesList?>
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
 <BorderPane prefHeight="540.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.chm.remote.client.controller.ClientDesktopController">
     <left>
-        <GridPane BorderPane.alignment="CENTER">
+        <GridPane style="-fx-background-color: white" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="20"/>
+            </BorderPane.margin>
             <columnConstraints>
-                <ColumnConstraints halignment="RIGHT" maxWidth="40.0" minWidth="40.0" prefWidth="40.0"/>
+                <ColumnConstraints halignment="CENTER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0"/>
                 <ColumnConstraints halignment="CENTER" maxWidth="200.0" minWidth="10.0" prefWidth="200.0"/>
-                <ColumnConstraints halignment="CENTER" maxWidth="10.0" minWidth="10.0" prefWidth="10.0"/>
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="50.0"/>
-                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="50.0"/>
-                <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="50.0"/>
+                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                <RowConstraints vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
-                <Label fx:id="remoteIdLabel" textAlignment="CENTER" GridPane.rowIndex="1"/>
-                <JFXTextField fx:id="remoteIdText" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1"
-                              GridPane.rowIndex="1"/>
-                <Label fx:id="passwordLabel" textAlignment="CENTER" GridPane.rowIndex="2"/>
+                <Label style="-fx-font-size:30px;-fx-text-fill:gray" text="此控制台" textAlignment="CENTER"
+                       GridPane.columnSpan="2" GridPane.rowIndex="0"/>
+                <Label textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="USER" size="25px"/>
+                    </graphic>
+                </Label>
+                <JFXTextField fx:id="localIdText" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1"
+                              GridPane.rowIndex="2" styleClass="text-field-transparent"/>
+                <Label textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="LOCK" size="30px"/>
+                    </graphic>
+                </Label>
                 <JFXTextField fx:id="passwordText" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1"
-                              GridPane.rowIndex="2"/>
-
-                <Separator GridPane.rowSpan="3" GridPane.columnIndex="3" orientation="VERTICAL"/>
+                              GridPane.rowIndex="4" styleClass="text-field-transparent"/>
+                <JFXButton fx:id="resetRandomPassword" onAction="#resetRandomPassword" text="%ResetRandomPassword"
+                           GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="6"
+                           styleClass="button-raised">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="ROTATE_LEFT" size="15px"/>
+                    </graphic>
+                </JFXButton>
+                <JFXButton fx:id="setPersonalPassword" onAction="#setPersonalPassword" text="%SetPersonalPassword"
+                           GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8"
+                           styleClass="button-raised">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="WRENCH" size="15px"/>
+                    </graphic>
+                </JFXButton>
             </children>
         </GridPane>
     </left>
     <center>
-        <JFXButton fx:id="btn" layoutX="113.0" layoutY="259.0" onAction="#btnClick" text="%Connection"/>
+        <VBox spacing="20">
+            <padding>
+                <Insets top="20.0"/>
+            </padding>
+            <BorderPane.margin>
+                <Insets left="20"/>
+            </BorderPane.margin>
+            <GridPane maxWidth="360.0" minWidth="360.0" prefWidth="360.0" style="-fx-background-color: white">
+                <columnConstraints>
+                    <ColumnConstraints halignment="CENTER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0"/>
+                    <ColumnConstraints halignment="CENTER" maxWidth="200.0" minWidth="200.0" prefWidth="200.0"/>
+                    <ColumnConstraints halignment="CENTER" maxWidth="20.0" minWidth="20.0" prefWidth="20.0"/>
+                    <ColumnConstraints halignment="LEFT" maxWidth="100.0" minWidth="100.0" prefWidth="100.0"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="50.0"/>
+                    <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                    <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                    <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0"/>
+                    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0"/>
+                </rowConstraints>
+                <children>
+                    <Label style="-fx-font-size:30px;-fx-text-fill:gray" text="其他控制台" textAlignment="CENTER"
+                           GridPane.columnSpan="4" GridPane.rowIndex="0"/>
+                    <Label textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="USER" size="25px"/>
+                        </graphic>
+                    </Label>
+                    <TextField fx:id="remoteIdText" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1"
+                               GridPane.rowIndex="2" style="-fx-font-size: 15px;"/>
+                    <Label fx:id="symbol" text=":" textAlignment="CENTER" GridPane.columnIndex="2"
+                           GridPane.rowIndex="2"/>
+                    <TextField fx:id="remotePortText" prefHeight="30.0" prefWidth="90.0" maxWidth="90.0"
+                               GridPane.columnIndex="3"
+                               GridPane.rowIndex="2" style="-fx-font-size: 15px;"/>
+                    <HBox GridPane.columnSpan="4" GridPane.rowIndex="4" alignment="CENTER_LEFT">
+                        <padding>
+                            <Insets left="10"/>
+                        </padding>
+                        <Label text="连接方式：" textAlignment="CENTER" style="-fx-font-size: 15px;"/>
+                        <JFXComboBox fx:id="connectionSelect" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="远端id"/>
+                                    <String fx:value="远端ip:端口"/>
+                                </FXCollections>
+                            </items>
+                        </JFXComboBox>
+                    </HBox>
+                    <JFXButton fx:id="connectionBtn" text="%Connection" GridPane.columnSpan="4" onAction="#connection"
+                               GridPane.rowIndex="6" styleClass="button-raised" GridPane.halignment="LEFT"
+                               minWidth="100.0">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="LINK" size="15px"/>
+                        </graphic>
+                        <GridPane.margin>
+                            <Insets left="10"/>
+                        </GridPane.margin>
+                    </JFXButton>
+                </children>
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+            </GridPane>
+            <Separator/>
+        </VBox>
     </center>
 </BorderPane>

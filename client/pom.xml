@@ -11,7 +11,7 @@
     <artifactId>client</artifactId>
     <version>${parent.version}</version>
     <name>client</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Remote For Client</description>
 
     <properties>
         <java.version>1.8</java.version>

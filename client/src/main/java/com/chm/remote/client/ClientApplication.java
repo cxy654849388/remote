@@ -4,7 +4,6 @@ import com.chm.remote.client.form.ClientDesktop;
 import de.felixroske.jfxsupport.AbstractJavaFxApplicationSupport;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Arrays;
@@ -21,9 +20,6 @@ import java.util.Collection;
 
 @SpringBootApplication
 public class ClientApplication extends AbstractJavaFxApplicationSupport {
-
-  @Autowired
-  private ClientDesktop clientDesktop;
 
   public static void main(String[] args) {
     launch(ClientApplication.class, ClientDesktop.class, args);

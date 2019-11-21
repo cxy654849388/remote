@@ -1,30 +1,12 @@
-/*
- * Copyright (C) 2011-2019 ShenZhen iBOXCHAIN Information Technology Co.,Ltd.
- *
- * All right reserved.
- *
- * This software is the confidential and proprietary
- * information of iBOXCHAIN Company of China.
- * ("Confidential Information"). You shall not disclose
- * such Confidential Information and shall use it only
- * in accordance with the terms of the contract agreement
- * you entered into with iBOXCHAIN inc.
- *
- */
 package com.chm.remote.client.controller;
 
 import com.chm.remote.client.textformatter.RemoteIdConverter;
-import com.jfoenix.controls.JFXNodesList;
 import de.felixroske.jfxsupport.FXMLController;
-import de.jensd.fx.glyphs.GlyphsDude;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.control.*;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -43,52 +25,102 @@ import java.util.ResourceBundle;
 @FXMLController
 public class ClientDesktopController implements Initializable {
 
-  @FXML
-  private Button btn;
+  private static final String REMOTE_ID = "远端id";
+
+  private static final String REMOTE_IP_PORT = "远端ip:端口";
 
   @FXML
-  private Label remoteIdLabel;
+  private Button connectionBtn;
+
+  @FXML
+  private Button resetRandomPassword;
+
+  @FXML
+  private Button setPersonalPassword;
+
+  @FXML
+  private TextField localIdText;
 
   @FXML
   private TextField remoteIdText;
 
   @FXML
-  private Label passwordLabel;
-
-  @FXML
   private TextField passwordText;
 
+  @FXML
+  private ComboBox<String> connectionSelect;
+
+  @FXML
+  private Label symbol;
+
+  @FXML
+  private TextField remotePortText;
+
+
   private ResourceBundle resources;
+
+  private String randomPassword;
+
+  private String personalPassword;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     this.resources = resources;
-    remoteIdText.setTextFormatter(new TextFormatter<>(new RemoteIdConverter()));
-    btn.getStyleClass().add("button-raised");
-    remoteIdLabel.setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.USER, "25px"));
-    remoteIdText.setStyle("-jfx-focus-color: transparent;-jfx-unfocus-color: transparent;");
-    remoteIdText.textProperty().addListener((observable, oldValue, newValue) -> {
+    // 设置id显示格式
+    localIdText.setTextFormatter(new TextFormatter<>(new RemoteIdConverter()));
+    // 设置id不可变
+    localIdText.textProperty().addListener((observable, oldValue, newValue) -> {
       newValue = StringUtils.replace(newValue, " ", "");
-      if (!StringUtils.equals("123456789", newValue)) {
-        remoteIdText.setText("123456789");
+      if (!StringUtils.equals(this.personalPassword, newValue)) {
+        localIdText.setText(this.personalPassword);
       }
     });
-    passwordLabel.setGraphic(GlyphsDude.createIcon(FontAwesomeIcon.LOCK, "30px"));
-    passwordText.setStyle("-jfx-focus-color: transparent;-jfx-unfocus-color: transparent;");
+    // 设置密码不可变
     passwordText.textProperty().addListener((observable, oldValue, newValue) -> {
       newValue = StringUtils.replace(newValue, " ", "");
-      if (!StringUtils.equals("123456789", newValue)) {
-        passwordText.setText("123456789");
+      if (!StringUtils.equals(this.randomPassword, newValue)) {
+        passwordText.setText(this.randomPassword);
       }
     });
+    // 设置下拉框选择事件
+    connectionSelect.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+      if (StringUtils.equals(REMOTE_ID, newValue)) {
+        symbol.setVisible(false);
+        symbol.setManaged(false);
+        remotePortText.setVisible(false);
+        remotePortText.setManaged(false);
+      } else if (StringUtils.equals(REMOTE_IP_PORT, newValue)) {
+        symbol.setVisible(true);
+        symbol.setManaged(true);
+        remotePortText.setVisible(true);
+        remotePortText.setManaged(true);
+      }
+    });
+    // 设置默认值
+    connectionSelect.getSelectionModel().select(0);
+
+    // 设置随机密码
+    this.resetRandomPassword.fire();
   }
 
   @FXML
-  public void btnClick(ActionEvent actionEvent) {
-    remoteIdText.setText("123456789");
+  public void setPersonalPassword(ActionEvent actionEvent) {
+    // TODO 设置个人密码
+  }
+
+  @FXML
+  public void resetRandomPassword(ActionEvent actionEvent) {
+    this.randomPassword = RandomStringUtils.randomAlphanumeric(6);
+    passwordText.setText(this.randomPassword);
+  }
+
+  @FXML
+  public void connection(ActionEvent actionEvent) {
+    // TODO 连接方式
   }
 
   public static void main(String[] args) {
     System.out.println(RegExUtils.replacePattern("231231231312", "(?<=\\d)(?=(\\d{3})+$)", "\\ "));
+    System.out.println(RandomStringUtils.randomAlphanumeric(6));
   }
 }

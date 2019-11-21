@@ -11,7 +11,7 @@
 	<artifactId>common</artifactId>
 	<version>${parent.version}</version>
 	<name>common</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Remote For Common</description>
 
 	<properties>
 		<java.version>1.8</java.version>
