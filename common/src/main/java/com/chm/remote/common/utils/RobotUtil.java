@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
  * description Robot操作类
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class RobotUtils {
+public class RobotUtil {
 
   private static Toolkit toolkit = Toolkit.getDefaultToolkit();
 
@@ -29,13 +29,17 @@ public class RobotUtils {
     }
   }
 
-  public static BufferedImage getScreenshot(){
+  public static BufferedImage getScreenshot() {
     //获取屏幕分辨率
     Dimension d = toolkit.getScreenSize();
     //以屏幕的尺寸创建个矩形
     Rectangle screenRect = new Rectangle(d);
     //截图（截取整个屏幕图片）
     return robot.createScreenCapture(screenRect);
+  }
+
+  public static Dimension getScreenSize() {
+    return toolkit.getScreenSize();
   }
 
 }

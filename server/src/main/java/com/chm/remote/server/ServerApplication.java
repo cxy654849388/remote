@@ -23,9 +23,6 @@ public class ServerApplication implements CommandLineRunner {
   @Value("${netty.port}")
   private int port;
 
-  @Value("${netty.host}")
-  private String host;
-
   @Autowired
   private EchoServer echoServer;
 
@@ -35,7 +32,7 @@ public class ServerApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    ChannelFuture future = echoServer.start(host, port);
+    ChannelFuture future = echoServer.start(port);
     Runtime.getRuntime().addShutdownHook(new Thread(() -> echoServer.destroy()));
     //服务端管道关闭的监听器并同步阻塞,直到channel关闭,线程才会往下执行,结束进程
     future.channel().closeFuture().syncUninterruptibly();

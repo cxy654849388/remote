@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.chm.remote.client.controller.PersonalSettingsController">
+    <center>
+        <GridPane style="-fx-background-color: white" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" maxWidth="40.0" minWidth="40.0" prefWidth="40.0"/>
+                <ColumnConstraints halignment="CENTER" maxWidth="200.0" minWidth="10.0" prefWidth="200.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0"/>
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0"/>
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0"/>
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0"/>
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0"/>
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0"/>
+                <RowConstraints vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label prefHeight="Infinity" prefWidth="Infinity" style="-fx-background-color: #E4E4E4"
+                       text="%PersonalPassword" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                    <padding>
+                        <Insets left="10.0"/>
+                    </padding>
+                </Label>
+                <Label textAlignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="LOCK" size="30px"/>
+                    </graphic>
+                </Label>
+                <JFXPasswordField fx:id="passwordText" prefHeight="30.0" prefWidth="200.0" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="1"/>
+            </children>
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="20">
+            <padding>
+                <Insets bottom="20" right="20" top="20"/>
+            </padding>
+            <JFXButton minWidth="100.0" onAction="#okBtn" styleClass="button-raised" text="%OK" textAlignment="CENTER"/>
+            <JFXButton minWidth="100.0" onAction="#cancelBtn" styleClass="button-raised" text="%Cancel"
+                       textAlignment="CENTER"/>
+        </HBox>
+    </bottom>
+</BorderPane>

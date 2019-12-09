@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.chm.remote.client.controller.ConsoleController" prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <JFXTabPane fx:id="tabPane" onMouseMoved="#mouseMoved"/>
+    </center>
+</BorderPane>

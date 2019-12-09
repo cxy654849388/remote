@@ -6,18 +6,19 @@
         <groupId>com.chm.remote</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>client</artifactId>
-    <version>${parent.version}</version>
     <name>client</name>
     <description>Remote For Client</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
         <jfoenix.version>8.0.8</jfoenix.version>
         <fontawesomefx.version>8.9</fontawesomefx.version>
         <controlsfx.version>8.40.15</controlsfx.version>
+        <javacv.version>1.5.2</javacv.version>
     </properties>
 
     <dependencies>
@@ -77,15 +78,31 @@
             <version>${fontawesomefx.version}</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>org.controlsfx</groupId>
-            <artifactId>controlsfx</artifactId>
-            <version>${controlsfx.version}</version>
-        </dependency>-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>${javacv.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>com.chm.remote</groupId>
             <artifactId>common</artifactId>
+            <version>${parent.version}</version>
         </dependency>
     </dependencies>
 
@@ -94,6 +111,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <!-- 资源文件拷贝插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
             </plugin>
         </plugins>
     </build>

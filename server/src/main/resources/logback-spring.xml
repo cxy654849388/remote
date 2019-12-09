@@ -12,14 +12,16 @@
       other           其他日志
  -->
 <configuration scan="true" scanPeriod="10 seconds" debug="true">
-    <substitutionProperty name="log.base" value="${catalina.base}/logs/server" />
-    <substitutionProperty name="log.app" value="${log.base}/app" />
-    <substitutionProperty name="log.error" value="${log.base}/error" />
-    <substitutionProperty name="log.other" value="${log.base}/other" />
+    <substitutionProperty name="log.base" value="${catalina.base}/logs/server"/>
+    <substitutionProperty name="log.app" value="${log.base}/app"/>
+    <substitutionProperty name="log.error" value="${log.base}/error"/>
+    <substitutionProperty name="log.other" value="${log.base}/other"/>
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId} %X{Protocol} %X{LogType} - %msg%n</pattern>
+            <pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId}
+                %X{Protocol} %X{LogType} - %msg%n
+            </pattern>
         </layout>
     </appender>
 
@@ -36,7 +38,9 @@
             </TimeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <Pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId} %X{Protocol} %X{LogType} - %msg%n</Pattern>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId}
+                %X{Protocol} %X{LogType} - %msg%n
+            </Pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
@@ -55,7 +59,9 @@
             </TimeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <Pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId} %X{Protocol} %X{LogType} - %msg%n</Pattern>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId}
+                %X{Protocol} %X{LogType} - %msg%n
+            </Pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
@@ -72,26 +78,28 @@
             </TimeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
-            <Pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId} %X{Protocol} %X{LogType} - %msg%n</Pattern>
+            <Pattern>[%date{yyyy-MM-dd HH:mm:ss:SSS}] [%t] %level %X{InterfaceTag} %X{transactionId} %X{ServerId}
+                %X{Protocol} %X{LogType} - %msg%n
+            </Pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
 
     <logger name="org" level="INFO" additivity="true">
-        <appender-ref ref="other" />
+        <appender-ref ref="other"/>
     </logger>
 
     <logger name="com" level="INFO" additivity="true">
-        <appender-ref ref="other" />
+        <appender-ref ref="other"/>
     </logger>
 
     <logger name="other" level="INFO" additivity="true">
-        <appender-ref ref="other" />
+        <appender-ref ref="other"/>
     </logger>
 
     <root level="DEBUG">
-        <appender-ref ref="app" />
-        <appender-ref ref="stdout" />
+        <appender-ref ref="app"/>
+        <appender-ref ref="stdout"/>
     </root>
 
 </configuration>

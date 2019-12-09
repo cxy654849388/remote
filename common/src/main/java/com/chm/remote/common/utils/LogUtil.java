@@ -15,7 +15,7 @@ import org.slf4j.MDC;
  * description 日志工具类
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class LogUtils {
+public class LogUtil {
 
   public static final Logger APP_LOG = LoggerFactory.getLogger("app");
   public static final Logger ERROR_LOG = LoggerFactory.getLogger("error");
@@ -54,7 +54,7 @@ public class LogUtils {
     Integer index = null;
 
     for (int i = 0; i < stacks.length; ++i) {
-      if (!LogUtils.class.getName().equals(stacks[i].getClassName())) {
+      if (!LogUtil.class.getName().equals(stacks[i].getClassName())) {
         index = i;
         break;
       }
