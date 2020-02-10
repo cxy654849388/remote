@@ -18,7 +18,7 @@ import java.util.Map;
  * @since 2019-11-29
  * description 序列化工具类
  **/
-public class SerializationUtil {
+public final class SerializationUtil {
 
   private static Map<Class<?>, Schema<?>> cachedSchema = Maps.newConcurrentMap();
 

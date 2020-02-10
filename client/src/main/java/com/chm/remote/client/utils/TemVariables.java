@@ -12,7 +12,7 @@ import lombok.Setter;
  * @since 2019-11-22
  * description 临时变量
  **/
-public class TemVariables {
+public final class TemVariables {
 
   /**
    * 随机密码

@@ -17,7 +17,7 @@ import javafx.stage.StageStyle;
  * @since 2019-11-21
  * description
  **/
-public class FxUtils {
+public final class FxUtils {
 
   public static Stage createFxmlView(final Class<? extends AbstractFxmlView> window, final Modality mode) {
     final AbstractFxmlView view = SpringUtil.getBean(window);

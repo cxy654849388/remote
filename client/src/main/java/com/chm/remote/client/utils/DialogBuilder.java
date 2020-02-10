@@ -31,7 +31,7 @@ import java.util.Optional;
  * @since 2019-12-02
  * description 对话框构造器
  **/
-public class DialogBuilder {
+public final class DialogBuilder {
 
   private String title;
 

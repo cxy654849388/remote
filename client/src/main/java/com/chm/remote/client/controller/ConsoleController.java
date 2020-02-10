@@ -95,9 +95,8 @@ public class ConsoleController implements Initializable {
     IMAGE_VIEW_MAP.put(ctx, imageView);
   }
 
-  public void setImage(ChannelHandlerContext ctx, byte[] data) {
+  public void setImage(ChannelHandlerContext ctx,Image image) {
     ImageView imageView = IMAGE_VIEW_MAP.get(ctx);
-    Image image = ImageUtil.getImageFromByteArray(data);
     imageView.setImage(image);
   }
 

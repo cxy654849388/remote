@@ -43,7 +43,7 @@ public class DirectServerHandler extends SimpleChannelInboundHandler<Transfer> {
   @Override
   public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
     LogUtil.logError("连接异常", cause);
-    AsyncTask.remove(transferInfoMap.get(ctx));
+    AsyncTask.removeSharedChannel(transferInfoMap.get(ctx));
     transferInfoMap.remove(ctx);
     ctx.close();
   }
@@ -60,7 +60,7 @@ public class DirectServerHandler extends SimpleChannelInboundHandler<Transfer> {
   public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
     LogUtil.logOther("客户端断开:{}", ctx);
     super.channelUnregistered(ctx);
-    AsyncTask.remove(transferInfoMap.get(ctx));
+    AsyncTask.removeSharedChannel(transferInfoMap.get(ctx));
     transferInfoMap.remove(ctx);
   }
 

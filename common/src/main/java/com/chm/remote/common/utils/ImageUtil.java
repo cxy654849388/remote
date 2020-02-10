@@ -21,7 +21,7 @@ import java.io.InputStream;
  * description 图像处理工具类
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ImageUtil {
+public final class ImageUtil {
 
   public static byte[] getScreenshotByteArray() {
     return ImageUtil.getScreenshotByteArray(1.0);

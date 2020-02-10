@@ -39,9 +39,9 @@ public enum Commands {
   HEARTBEAT("heartbeatDirectClientProcess", "heartbeatDirectServerProcess", "heartbeatServerProcess"),
 
   /**
-   * 被控端发送屏幕截图命令
+   * 被控端发送屏幕图片命令
    */
-  SCREEN("screenDirectClientProcess", "screenDirectServerProcess", "screenServerProcess"),
+  FRAME("frameDirectClientProcess", "frameDirectServerProcess", "frameServerProcess"),
 
   /**
    * 控制端发送键盘事件

@@ -19,6 +19,7 @@
         <fontawesomefx.version>8.9</fontawesomefx.version>
         <controlsfx.version>8.40.15</controlsfx.version>
         <javacv.version>1.5.2</javacv.version>
+        <rdp.version>3.0.0</rdp.version>
     </properties>
 
     <dependencies>
@@ -29,9 +30,7 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-            <optional>true</optional>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
@@ -91,6 +90,14 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/com.sshtools/rdp -->
+        <dependency>
+            <groupId>com.sshtools</groupId>
+            <artifactId>rdp</artifactId>
+            <version>${rdp.version}</version>
         </dependency>
 
         <dependency>

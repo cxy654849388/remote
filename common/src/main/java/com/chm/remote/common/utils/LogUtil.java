@@ -15,7 +15,7 @@ import org.slf4j.MDC;
  * description 日志工具类
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class LogUtil {
+public final class LogUtil {
 
   public static final Logger APP_LOG = LoggerFactory.getLogger("app");
   public static final Logger ERROR_LOG = LoggerFactory.getLogger("error");

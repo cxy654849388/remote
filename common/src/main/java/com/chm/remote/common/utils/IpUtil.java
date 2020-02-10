@@ -14,7 +14,7 @@ import java.util.Enumeration;
  * @since 2019-12-02
  * description ip地址工具类
  **/
-public class IpUtil {
+public final class IpUtil {
 
   /**
    * IP地址的正则表达式.

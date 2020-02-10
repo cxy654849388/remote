@@ -46,7 +46,7 @@ public class TokenDirectServerProcess implements CommandProcess {
       transferInfo.setControlled(transfer.getTarget());
       transferInfo.setControl(transfer.getSource());
       transferInfo.setChannel(ctx.channel());
-      AsyncTask.addHdChannel(transferInfo);
+      AsyncTask.addSharedChannel(transferInfo);
       directServerHandler.putTransferInfo(ctx, transferInfo);
     } else {
       // 连接失败
